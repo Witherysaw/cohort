@@ -1,12 +1,7 @@
-import { Outlet, Link } from "react-router-dom";
-import AdminPanelUser from "./AdminPanelUser";
-import AdminPanelQueries from "./AdminPanelQueries";
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AdminPanel({}) {
-  const [activeTab, setActiveTab] = useState("user");
+export default function AdminMenuBar({ children }) {
   const menuheight = 5;
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -84,16 +79,10 @@ export default function AdminPanel({}) {
       >
         {/* Sidebar */}
         <div className="flex flex-col gap-4 w-40 bg-blue-300 text-black p-4 h-full">
-          <button
-            className="bg-white rounded-md px-4 py-2"
-            onClick={() => setActiveTab("query")}
-          >
+          <button className="bg-white rounded-md px-4 py-2">
             Contact Queries
           </button>
-          <button
-            className="bg-white rounded-md px-4 py-2"
-            onClick={() => setActiveTab("user")}
-          >
+          <button className="bg-white rounded-md px-4 py-2">
             Users Management
           </button>
           <button className="bg-white rounded-md px-4 py-2">
@@ -102,11 +91,7 @@ export default function AdminPanel({}) {
         </div>
 
         {/* Page Content */}
-        <div className="flex relative w-full bg-transparent">
-          {" "}
-          {activeTab === "user" && <AdminPanelUser />}
-          {activeTab === "queries" && <AdminPanelQueries />}
-        </div>
+        <div className="flex relative w-full bg-transparent">{children}</div>
       </div>
     </div>
   );

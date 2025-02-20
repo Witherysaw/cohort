@@ -1,12 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import Home from "./Home.tsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./Home.tsx";
 import ContactUs from "./ContactUs.tsx";
 import LogIn from "./LogIn.tsx";
-import AdminPanel from "./AdminPanel.tsx";
+import AdminPanelUser from "./AdminPanelUser.tsx";
+import AdminPanelQueries from "./AdminPanelQueries.tsx";
 import AuthRoute from "./AuthRoute.tsx";
+import AdminPanel from "./AdminPanel.tsx"; // Parent component for /AdminPanel
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,11 +18,12 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/Explore" element={<Navigate to="/" />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/AdminLogin" element={<LogIn />} />
+
+        {/* Protect the admin panel route */}
         <Route element={<AuthRoute />}>
-          <Route path="/AdminPanel" element={<AdminPanel />} />
+          <Route path="/AdminPanel" element={<AdminPanel />}></Route>
         </Route>
       </Routes>
-      {/* <Route path="*" element={<Navigate to="/" />} /> */}
     </BrowserRouter>
   </StrictMode>
 );

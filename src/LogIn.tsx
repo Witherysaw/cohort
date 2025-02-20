@@ -31,6 +31,7 @@ export default function LogIn() {
       if (response.ok) {
         // Save token if needed (for authentication persistence)
         localStorage.setItem("authToken", data.token);
+        localStorage.setItem("userId", data.user_id);
         navigate("/AdminPanel");
       } else {
         setError(data.message || "Invalid credentials");
