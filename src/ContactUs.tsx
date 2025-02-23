@@ -19,49 +19,62 @@ export default function ContactUs() {
   const navigate = useNavigate();
 
   return (
-    <div className="absolute w-full min-h-screen bg-gradient-to-r from-[#ffffff] to-emerald-400">
+    <div className="absolute w-full min-h-screen bg-blue-50 ">
+      {/* bg-gradient-to-r from-[#ffffff] to-emerald-400 */}
       <Navbar></Navbar>
-      {/* <div className="w-20 min-h-screen absolute left-[20rem] top-0 bg-[#31b660] text-white hover:bg-[#b7ffd0] hover:text-black transition-all duration-300 ease-in-out">
-        Text
-      </div> */}
-      <p className="p-3 text-md text-purple-950 z-1">
-        Contact Us page nww thar gyiLorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nam alias soluta eos tenetur, odio vel quam facere
-        cupiditate neque, ipsum aspernatur. Tenetur aperiam sunt officiis nisi,
-        omnis expedita perferendis magnam. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Error inventore sit accusantium nemo rerum
-        dolore voluptates quae quaerat! Modi eum eaque est delectus suscipit
-        veniam et asperiores consectetur cupiditate fugiat. Lorem ipsum dolor
-        sit amet consectetur, adipisicing elit. Veniam corrupti necessitatibus
-        iste accusantium possimus maxime soluta ducimus tenetur! Doloremque
-        reprehenderit fugiat error necessitatibus laborum dicta iste inventore
-        officia at dolorem. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Deleniti ipsum rerum doloribus voluptas ipsam fuga, earum iusto
-        quidem obcaecati. Repudiandae temporibus natus veritatis a praesentium
-        hic, nulla possimus totam? Magni? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Commodi doloremque deserunt consectetur porro ea ipsa,
-        quod distinctio, voluptate facilis perspiciatis aperiam. Ad dolor a
-        saepe molestiae modi placeat optio excepturi? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Commodi doloremque deserunt consectetur
-        porro ea ipsa, quod distinctio, voluptate facilis perspiciatis aperiam.
-        Ad dolor a saepe molestiae modi placeat optio excepturi? Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Commodi doloremque deserunt
-        consectetur porro ea ipsa, quod distinctio, voluptate facilis
-        perspiciatis aperiam. Ad dolor a saepe molestiae modi placeat optio
-        excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Commodi doloremque deserunt consectetur porro ea ipsa, quod distinctio,
-        voluptate facilis perspiciatis aperiam. Ad dolor a saepe molestiae modi
-        placeat optio excepturi? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Commodi doloremque deserunt consectetur porro ea ipsa,
-        quod distinctio, voluptate facilis perspiciatis aperiam. Ad dolor a
-        saepe molestiae modi placeat optio excepturi? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Commodi doloremque deserunt consectetur
-        porro ea ipsa, quod distinctio, voluptate facilis perspiciatis aperiam.
-        Ad dolor a saepe molestiae modi placeat optio excepturi? Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Alias repudiandae ratione
-        dolore tenetur illo eveniet exercitationem aspernatur? Ipsa modi commodi
-        unde ex quidem error a id enim, repellendus deleniti ratione!
-      </p>
+      <div className="relative w-[850px] h-screen overflow-hidden shadow-xl">
+        <img
+          className="opacity-85 bg-slate-600 w-[850px] flex z-1"
+          src="https://i.ibb.co/5gd8k250/contactuspagebg.png"
+          alt="contactuspagebg"
+        ></img>
+      </div>
+      <div className="absolute top-[105px] right-20 w-[600px] h-[550px] rounded-2xl shadow-2xl bg-white p-6 pl-12">
+        <h1 className="text-3xl font-semibold">Contact Form</h1>
+        <div className="flex flex-col p-6 pl-0 pt-2">
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Name </h2>
+              <input className="flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Phone </h2>
+              <input className="flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+          </div>
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Email </h2>
+              <input className="flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Company </h2>
+              <input className="flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+          </div>
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Country </h2>
+              <input className="flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Job Title </h2>
+              <input className="flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex flex-col gap-3">
+              <h2 className="flex"> Job Detials </h2>
+              <input className=" w-[470px] h-20 flex text-[#000000] py-2 mb-4 p-4 bg-transparent border-2 rounded-md border-[#0c182f] focus:outline-none focus:border-[#1c7da3]"></input>
+            </div>
+          </div>
+          <div className="flex">
+            <button className="px-6 py-2 text-white text-lg font-semibold bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 transition">
+              Explore Now →
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

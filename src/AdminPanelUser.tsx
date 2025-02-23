@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "boxicons"; // Import BoxIcons
 import Popup from "./Componants/Popup";
-import AdminMenuBar from "./Componants/AdminPanelMenu";
 
 export default function AdminPanelUser() {
   const navigate = useNavigate();

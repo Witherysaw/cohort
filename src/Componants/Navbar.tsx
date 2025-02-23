@@ -66,9 +66,9 @@ export default function Navbar() {
 
   return (
     <header
-      className="flex justify-between
+      className="absolute w-full top-0 flex justify-between
         items-center text-black py-4 px-8
-        md:px-16 bg-white drop-shadow-md"
+        md:px-16 bg-white drop-shadow-md z-10"
     >
       <a className="" href="">
         <img
@@ -96,7 +96,7 @@ export default function Navbar() {
           Solutions
         </li>
         <li className="p-3 hover:bg-sky-400 *:jover: hover:text-white rounded-md transition-all cursor-pointer">
-          Industries
+          About Us
         </li>
         <li className="list-none z-20 w-90 text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer relative">
           <p
@@ -129,13 +129,13 @@ export default function Navbar() {
               style={{ transition: " opacity 0.3s ease" }}
             >
               <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
-                Home
+                Ratings
               </li>
               <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
-                Solutions
+                Blogs
               </li>
               <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
-                Industries
+                Gallery
               </li>
             </div>
           )}

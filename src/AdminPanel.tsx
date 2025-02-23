@@ -86,7 +86,7 @@ export default function AdminPanel({}) {
         <div className="flex flex-col gap-4 w-40 bg-blue-300 text-black p-4 h-full">
           <button
             className="bg-white rounded-md px-4 py-2"
-            onClick={() => setActiveTab("query")}
+            onClick={() => setActiveTab("queries")} // Ensure this matches with the check
           >
             Contact Queries
           </button>
@@ -103,9 +103,9 @@ export default function AdminPanel({}) {
 
         {/* Page Content */}
         <div className="flex relative w-full bg-transparent">
-          {" "}
           {activeTab === "user" && <AdminPanelUser />}
-          {activeTab === "queries" && <AdminPanelQueries />}
+          {activeTab === "queries" && <AdminPanelQueries />}{" "}
+          {/* Ensure activeTab is 'queries' */}
         </div>
       </div>
     </div>
