@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import InquiryTableWhite from "./Componants/InquiryTableWhite";
+import InquiryTableBlack from "./Componants/InquiryTableBlack";
 
 export default function AdminPanelQueries() {
   const [inquiries, setInquiries] = useState<any[]>([]);
