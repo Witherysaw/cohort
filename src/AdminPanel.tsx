@@ -102,7 +102,7 @@ export default function AdminPanel({}) {
         </div>
 
         {/* Page Content */}
-        <div className="flex relative w-full bg-transparent">
+        <div className="flex relative w-full bg-transparent overflow-hidden">
           {activeTab === "user" && <AdminPanelUser />}
           {activeTab === "queries" && <AdminPanelQueries />}{" "}
           {/* Ensure activeTab is 'queries' */}
