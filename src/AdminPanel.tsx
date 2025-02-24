@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminPanel({}) {
-  const [activeTab, setActiveTab] = useState("user");
+  const [activeTab, setActiveTab] = useState("queries");
   const menuheight = 5;
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -86,16 +86,21 @@ export default function AdminPanel({}) {
         <div className="flex flex-col gap-4 w-40 bg-blue-300 text-black p-4 h-full">
           <button
             className="bg-white rounded-md px-4 py-2"
-            onClick={() => setActiveTab("queries")} // Ensure this matches with the check
+            onClick={() => setActiveTab("queries")}
           >
             Contact Queries
           </button>
-          <button
-            className="bg-white rounded-md px-4 py-2"
-            onClick={() => setActiveTab("user")}
-          >
-            Users Management
-          </button>
+
+          {/* Only show User Management if the user is an admin */}
+          {(user.level === "admin" || user.level === "Admin") && (
+            <button
+              className="bg-white rounded-md px-4 py-2"
+              onClick={() => setActiveTab("user")}
+            >
+              Users Management
+            </button>
+          )}
+
           <button className="bg-white rounded-md px-4 py-2">
             Blogs Management
           </button>

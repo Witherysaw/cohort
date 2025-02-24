@@ -2,10 +2,12 @@ import { useState } from "react";
 import Popup from "./PopUp";
 
 const InquiryTableWhite = ({
+  userLevel,
   inquiries,
   loading,
   refresh,
 }: {
+  userLevel: string;
   inquiries: any[];
   loading: boolean;
   refresh: () => void;
@@ -65,7 +67,7 @@ const InquiryTableWhite = ({
   return (
     <>
       <table className="w-full table-auto border-collapse border border-gray-300">
-        <thead className="bg-gray-200">
+        <thead className="bg-gray-200 text-black">
           <tr>
             <th className="py-2 px-4 border-b">Full Name</th>
             <th className="py-2 px-4 border-b">Email</th>
@@ -94,7 +96,7 @@ const InquiryTableWhite = ({
                       onChange={(e) =>
                         handleStateChange(inquiry.qid, e.target.value)
                       }
-                      className="bg-gray-200 px-3 py-1 rounded-md"
+                      className="bg-gray-200 text-black px-3 py-1 rounded-md"
                     >
                       <option value="New">New</option>
                       <option value="In Progress">In Progress</option>
@@ -103,12 +105,15 @@ const InquiryTableWhite = ({
                     </select>
                   </td>
                   <td className="py-2 px-4 border-b">
-                    <button
-                      onClick={() => handleDelete(inquiry.qid)}
-                      className="bg-red-500 px-4 py-1 rounded-md text-white mr-2 hover:bg-red-600"
-                    >
-                      Delete
-                    </button>
+                    {/* Show Delete button only if the user is an admin */}
+                    {userLevel.toLowerCase() === "admin" && (
+                      <button
+                        onClick={() => handleDelete(inquiry.qid)}
+                        className="bg-red-500 px-4 py-1 rounded-md text-white mr-2 hover:bg-red-600"
+                      >
+                        Delete
+                      </button>
+                    )}
                     <button
                       onClick={() => handleDetails(inquiry)}
                       className="bg-blue-500 px-4 py-1 rounded-md text-white hover:bg-blue-600"
@@ -120,7 +125,7 @@ const InquiryTableWhite = ({
               ))
             ) : (
               <tr>
-                <td colSpan={7} className="py-2 px-4 text-center">
+                <td colSpan={7} className="py-2 px-4 text-center text-black">
                   No inquiries found
                 </td>
               </tr>

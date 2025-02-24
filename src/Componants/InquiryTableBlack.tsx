@@ -64,7 +64,7 @@ const InquiryTableBlack = ({
 
   return (
     <>
-      <table className="w-full table-auto border-collapse bg-slate-800 border border-gray-300">
+      <table className="w-full table-auto border-collapse  bg-slate-800 border border-gray-300">
         <thead className="bg-gray-800 text-white">
           <tr>
             <th className="py-2 px-4 border-b">Full Name</th>
@@ -72,6 +72,7 @@ const InquiryTableBlack = ({
             <th className="py-2 px-4 border-b">Date</th>
             <th className="py-2 px-4 border-b">Company</th>
             <th className="py-2 px-4 border-b">Country</th>
+            <th className="py-2 px-4 border-b">Solution</th>
             <th className="py-2 px-4 border-b">State</th>
             <th className="py-2 px-4 border-b">Actions</th>
           </tr>
@@ -82,7 +83,7 @@ const InquiryTableBlack = ({
               inquiries.map((inquiry) => (
                 <tr
                   key={inquiry.qid}
-                  className="bg-slate-700 hover:bg-slate-500 text-white"
+                  className=" bg-slate-700 hover:bg-slate-500 text-white"
                 >
                   <td className="py-2 px-4 border-b">{inquiry.full_name}</td>
                   <td className="py-2 px-4 border-b">{inquiry.email}</td>
@@ -91,13 +92,14 @@ const InquiryTableBlack = ({
                   </td>
                   <td className="py-2 px-4 border-b">{inquiry.company}</td>
                   <td className="py-2 px-4 border-b">{inquiry.country}</td>
+                  <td className="py-2 px-4 border-b">{inquiry.solution}</td>
                   <td className="py-2 px-4 border-b">
                     <select
                       value={inquiry.state}
                       onChange={(e) =>
                         handleStateChange(inquiry.qid, e.target.value)
                       }
-                      className="bg-gray-200 text-black px-3 py-1 rounded-md"
+                      className="bg-gray-200 px-3 py-1 rounded-md"
                     >
                       <option value="New">New</option>
                       <option value="In Progress">In Progress</option>
@@ -159,11 +161,15 @@ const InquiryTableBlack = ({
               <strong>Country:</strong> {selectedInquiry.country}
             </p>
             <p>
+              <strong>Job Title:</strong> {selectedInquiry.solution}
+            </p>
+            <p>
               <strong>State:</strong> {selectedInquiry.state}
             </p>
             <p>
               <strong>Job Title:</strong> {selectedInquiry.job_title}
             </p>
+
             <p>
               <strong>Job Details:</strong> {selectedInquiry.job_detail}
             </p>

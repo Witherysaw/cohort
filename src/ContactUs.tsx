@@ -10,6 +10,7 @@ export default function ContactUs() {
     country: "",
     jobTitle: "",
     jobDetail: "",
+    solution: "",
     state: "new",
   });
 
@@ -73,6 +74,7 @@ export default function ContactUs() {
           country: "",
           jobTitle: "",
           jobDetail: "",
+          solution: "",
           state: "new",
         });
       } else {
@@ -165,6 +167,29 @@ export default function ContactUs() {
                     {country}
                   </option>
                 ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col">
+              <label className="font-medium">Solution</label>
+              <select
+                name="solution"
+                value={formData.solution}
+                onChange={handleChange}
+                className="py-2 px-4 bg-transparent border-2 rounded-md border-gray-400 focus:outline-none focus:border-blue-500"
+                required
+              >
+                <option value="">Select Solution</option>
+                <option value="Solution 1">Solution 1</option>
+                <option value="Solution 2">Solution 2</option>
+                <option value="Solution 3">Solution 3</option>
+                <option value="Solution 4">Solution 4</option>
+                <option value="Solution 5">Solution 5</option>
+                <option value="Solution 6">Solution 6</option>
+                <option value="Solution 7">Solution 7</option>
+                <option value="Solution 8">Solution 8</option>
+                <option value="Solution 9">Solution 9</option>
+                <option value="Solution 10">Solution 10</option>
               </select>
             </div>
 

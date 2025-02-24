@@ -204,9 +204,13 @@ export default function AdminPanelUser() {
 
   //refresh
   const refresh = () => {
+    fetchUsers(); // Refresh the user list
+  };
+
+  const clearFilters = () => {
     setSearchQuery(""); // Clears the input state
     setAppliedSearchQuery(""); // Clears the applied search
-    fetchUsers(); // Refresh the user list
+    setSelectedLevel("");
   };
 
   // Search only when button is clicked
@@ -267,7 +271,7 @@ export default function AdminPanelUser() {
             </div>
 
             {/* Buttons */}
-            <div className="flex p-2 flex-row w-[400px] justify-evenly bg-transparent relative bottom-2">
+            <div className="flex p-2 flex-row w-[450px] justify-evenly bg-transparent relative bottom-2">
               <button
                 className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white"
                 onClick={() => setIsAddUserOpen(true)}
@@ -297,6 +301,14 @@ export default function AdminPanelUser() {
                   name="refresh"
                   animation={loading ? "spin" : ""}
                 ></box-icon>
+              </button>
+              {/* Clear Filters Button */}
+              <button
+                onClick={clearFilters}
+                className="flex items-center gap-2 bg-gray-400 px-1 py-1 rounded-md text-white hover:bg-gray-500 transition-all"
+                disabled={loading}
+              >
+                <box-icon name="x-circle"></box-icon>
               </button>
             </div>
           </div>
