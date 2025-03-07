@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
+import BlogCreate from "./BlogCreate";
 import AdminPanelUser from "./AdminPanelUser";
 import AdminPanelQueries from "./AdminPanelQueries";
+import AdminPanelBlogs from "./AdminPanelBlogs";
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -83,9 +85,14 @@ export default function AdminPanel({}) {
         style={{ marginTop: `${menuheight}rem` }}
       >
         {/* Sidebar */}
-        <div className="flex flex-col gap-4 w-40 bg-blue-300 text-black p-4 h-full">
+        <div className="flex flex-col gap-4 w-40 bg-blue-300 text-black py-4 h-full">
           <button
-            className="bg-white rounded-md px-4 py-2"
+            className={`px-4 py-2 border-collapse border-2 border-blue-500 rounded-md transition-all 
+      ${
+        activeTab === "queries"
+          ? "bg-blue-700 text-white"
+          : "bg-white hover:bg-blue-500 hover:text-white"
+      }`}
             onClick={() => setActiveTab("queries")}
           >
             Contact Queries
@@ -94,14 +101,27 @@ export default function AdminPanel({}) {
           {/* Only show User Management if the user is an admin */}
           {(user.level === "admin" || user.level === "Admin") && (
             <button
-              className="bg-white rounded-md px-4 py-2"
+              className={`px-4 py-2 border-collapse border-2 border-blue-500 rounded-md transition-all 
+        ${
+          activeTab === "user"
+            ? "bg-blue-700 text-white"
+            : "bg-white hover:bg-blue-500 hover:text-white"
+        }`}
               onClick={() => setActiveTab("user")}
             >
               Users Management
             </button>
           )}
 
-          <button className="bg-white rounded-md px-4 py-2">
+          <button
+            className={`px-4 py-2 border-collapse border-2 border-blue-500 rounded-md transition-all 
+      ${
+        activeTab === "blog"
+          ? "bg-blue-700 text-white"
+          : "bg-white hover:bg-blue-500 hover:text-white"
+      }`}
+            onClick={() => setActiveTab("blog")}
+          >
             Blogs Management
           </button>
         </div>
@@ -109,7 +129,13 @@ export default function AdminPanel({}) {
         {/* Page Content */}
         <div className="flex relative w-full bg-transparent overflow-hidden">
           {activeTab === "user" && <AdminPanelUser />}
-          {activeTab === "queries" && <AdminPanelQueries />}{" "}
+          {activeTab === "queries" && <AdminPanelQueries />}
+          {activeTab === "blog" && (
+            <AdminPanelBlogs setActiveTab={setActiveTab} />
+          )}
+          {activeTab === "createBlog" && (
+            <BlogCreate setActiveTab={setActiveTab} />
+          )}
           {/* Ensure activeTab is 'queries' */}
         </div>
       </div>

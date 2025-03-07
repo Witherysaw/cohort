@@ -66,9 +66,9 @@ export default function Navbar() {
 
   return (
     <header
-      className="absolute w-full top-0 flex justify-between
+      className="sticky w-full top-0 flex justify-between
         items-center text-black py-4 px-8
-        md:px-16 bg-white drop-shadow-md z-10"
+        md:px-16 bg-white drop-shadow-md z-30"
     >
       <a className="" href="">
         <img
@@ -84,21 +84,21 @@ export default function Navbar() {
         gap-12 font-semibold text-base"
       >
         <li
-          className="p-3  hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer"
+          className="p-3  hover:bg-blue-600 hover:text-white rounded-md transition-all cursor-pointer"
           onClick={() => navigate("/")}
         >
           Home
         </li>
         <li
-          className="p-3 hover:bg-sky-400 *:jover: hover:text-white rounded-md transition-all cursor-pointer"
+          className="p-3 hover:bg-blue-600 *:jover: hover:text-white rounded-md transition-all cursor-pointer"
           onClick={() => navigate("/Solutions")}
         >
           Solutions
         </li>
-        <li className="p-3 hover:bg-sky-400 *:jover: hover:text-white rounded-md transition-all cursor-pointer">
+        <li className="p-3 hover:bg-blue-600 *:jover: hover:text-white rounded-md transition-all cursor-pointer">
           About Us
         </li>
-        <li className="list-none z-20 w-90 text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer relative">
+        <li className="list-none z-20 w-90 text-center p-3 hover:bg-blue-600 hover:text-white rounded-md transition-all cursor-pointer relative">
           <p
             className=""
             onMouseEnter={() => setIsSubMenuOpen(true)}
@@ -128,13 +128,16 @@ export default function Navbar() {
               }`}
               style={{ transition: " opacity 0.3s ease" }}
             >
-              <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
+              <li className="list-none w-full text-center p-3 hover:bg-blue-600 hover:text-white rounded-md transition-all cursor-pointer">
                 Ratings
               </li>
-              <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
+              <li
+                className="list-none w-full text-center p-3 hover:bg-blue-600 hover:text-white rounded-md transition-all cursor-pointer"
+                onClick={() => navigate("/Blogs")}
+              >
                 Blogs
               </li>
-              <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
+              <li className="list-none w-full text-center p-3 hover:bg-blue-600 hover:text-white rounded-md transition-all cursor-pointer">
                 Gallery
               </li>
             </div>
@@ -142,7 +145,7 @@ export default function Navbar() {
         </li>
 
         <li
-          className="p-3 hover:bg-sky-400 *:jover: hover:text-white rounded-md transition-all cursor-pointer"
+          className="p-3 hover:bg-blue-600 *:jover: hover:text-white rounded-md transition-all cursor-pointer"
           onClick={() => navigate("/ContactUs")}
         >
           Contact Us
@@ -195,7 +198,7 @@ export default function Navbar() {
           Solutions
         </li>
         <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">
-          Industries
+          About Us
         </li>
         <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">
           <p onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}>
@@ -215,13 +218,16 @@ export default function Navbar() {
           style={{ transition: "opacity 0.3s ease" }}
         >
           <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">
-            Home
+            Ratings
+          </li>
+          <li
+            className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white transition-all cursor-pointer"
+            onClick={() => navigate("/Blogs")}
+          >
+            Blogs
           </li>
           <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">
-            Solutions
-          </li>
-          <li className="list-none w-full text-center p-3 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">
-            Industries
+            Gallery
           </li>
         </div>
         <li

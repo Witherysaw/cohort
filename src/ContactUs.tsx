@@ -10,7 +10,7 @@ export default function ContactUs() {
     country: "",
     jobTitle: "",
     jobDetail: "",
-    solution: "",
+    solution: "solution1",
     state: "new",
   });
 
@@ -74,7 +74,7 @@ export default function ContactUs() {
           country: "",
           jobTitle: "",
           jobDetail: "",
-          solution: "",
+          solution: "solution1",
           state: "new",
         });
       } else {
@@ -101,7 +101,7 @@ export default function ContactUs() {
       </div>
 
       {/* Contact Form */}
-      <div className="absolute top-[105px] right-20 w-[600px] h-auto rounded-2xl shadow-2xl bg-white p-8">
+      <div className=" border-2 border-[#2272c29f] absolute top-[105px] lg:right-20 w-[600px] h-auto rounded-2xl shadow-2xl bg-white p-8">
         <h1 className="text-3xl font-semibold mb-6">Contact Form</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -170,7 +170,7 @@ export default function ContactUs() {
               </select>
             </div>
 
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <label className="font-medium">Solution</label>
               <select
                 name="solution"
@@ -191,7 +191,7 @@ export default function ContactUs() {
                 <option value="Solution 9">Solution 9</option>
                 <option value="Solution 10">Solution 10</option>
               </select>
-            </div>
+            </div> */}
 
             <div className="flex flex-col">
               <label className="font-medium">Job Title</label>
@@ -217,9 +217,12 @@ export default function ContactUs() {
             />
           </div>
 
+          {/* Error Message */}
+          {message && <p className="text-red-500 text-center">{message}</p>}
+
           <button
             type="submit"
-            className="w-full py-3 text-white text-lg font-semibold bg-sky-400 rounded-lg shadow-md hover:bg-blue-600 transition"
+            className="w-full py-3 text-white text-lg font-semibold bg-blue-600 rounded-lg shadow-md hover:bg-blue-400 hover:text-black transition"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Submit Inquiry"}
@@ -237,7 +240,7 @@ export default function ContactUs() {
               an hour, please submit again.
             </p>
             <button
-              className="mt-4 px-6 py-2 bg-sky-400 text-white rounded-lg hover:bg-blue-600"
+              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-400"
               onClick={() => setShowPopup(false)}
             >
               OK

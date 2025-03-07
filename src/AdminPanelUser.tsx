@@ -247,7 +247,7 @@ export default function AdminPanelUser() {
                 className="mx-5 h-[35px] w-40  pl-2 rounded-md border-2 border-blue-300 focus:bg-slate-100 focus:outline-sky-500"
               />
               <button
-                className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white"
+                className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white hover:bg-blue-600"
                 onClick={applySearch} // Search applies only on button click
               >
                 Search
@@ -273,19 +273,19 @@ export default function AdminPanelUser() {
             {/* Buttons */}
             <div className="flex p-2 flex-row w-[450px] justify-evenly bg-transparent relative bottom-2">
               <button
-                className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white"
+                className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white hover:bg-blue-600"
                 onClick={() => setIsAddUserOpen(true)}
               >
                 Add User
               </button>
               <button
-                className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white"
+                className="bg-[#2ec0ff] h-[35px] px-5 pb-1 rounded-md text-white hover:bg-blue-600"
                 onClick={() => setIsEditUserOpen(true)}
               >
                 Edit User
               </button>
               <button
-                className="bg-[#2ec0ff] h-[35px] px-3 pb-1 rounded-md text-white"
+                className="bg-[#2ec0ff] h-[35px] px-3 pb-1 rounded-md text-white hover:bg-blue-600"
                 onClick={() => setIsDeleteUserOpen(true)}
               >
                 Delete User

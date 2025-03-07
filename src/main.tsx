@@ -8,6 +8,7 @@ import AdminPanelUser from "./AdminPanelUser.tsx";
 import AdminPanelQueries from "./AdminPanelQueries.tsx";
 import AuthRoute from "./AuthRoute.tsx";
 import AdminPanel from "./AdminPanel.tsx"; // Parent component for /AdminPanel
+import Blogs from "./Blogs.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<Home />} />
         <Route path="/Product" element={<Navigate to="/" />} />
         <Route path="/Explore" element={<Navigate to="/" />} />
+        <Route path="/Blogs" element={<Blogs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/AdminLogin" element={<LogIn />} />
 

@@ -118,7 +118,7 @@ export default function AdminPanelQueries() {
                 </select>
               </div>
 
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <label className="mr-2">Solution:</label>
                 <select
                   value={solutionFilter}
@@ -137,7 +137,7 @@ export default function AdminPanelQueries() {
                   <option value="Solution 9">Solution 9</option>
                   <option value="Solution 10">Solution 10</option>
                 </select>
-              </div>
+              </div> */}
 
               <div className="flex items-center">
                 <label className="mr-2">Name:</label>
@@ -146,7 +146,7 @@ export default function AdminPanelQueries() {
                   value={nameFilter}
                   onChange={(e) => setNameFilter(e.target.value)}
                   placeholder="Search by Name"
-                  className="w-[20px] px-4 py-1 border-2 rounded-md  border-blue-300 focus:bg-slate-100 focus:outline-sky-500"
+                  className="w-[160px] px-4 py-1 border-2 rounded-md  border-blue-300 focus:bg-slate-100 focus:outline-sky-500"
                 />
               </div>
 
