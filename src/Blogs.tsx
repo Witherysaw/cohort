@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Componants/Navbar";
 import CustomFooter from "./Componants/CustomFooter";
+import { useNavigate } from "react-router-dom";
 
 export default function Blogs() {
   // State to store the fetched blogs
   const [blogs, setBlogs] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
   const blogsPerPage = 4; // Number of blogs per page
 
   useEffect(() => {
@@ -82,7 +84,10 @@ export default function Blogs() {
                   {blog.paragraph1.slice(0, 200)}...
                 </p>
               </div>
-              <button className="text-lg px-6 py-1 text-blue-400 hover:text-blue-600">
+              <button
+                className="text-lg px-6 py-1 text-blue-400 hover:text-blue-600"
+                onClick={() => navigate(`/blog/${blog.id}`)}
+              >
                 Read More →
               </button>
             </div>
