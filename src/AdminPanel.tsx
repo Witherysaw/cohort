@@ -6,8 +6,9 @@ import AdminPanelBlogs from "./AdminPanelBlogs";
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import BlogEdit from "./BlogEdit";
 export default function AdminPanel({}) {
+  const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("queries");
   const menuheight = 5;
   const navigate = useNavigate();
@@ -17,6 +18,11 @@ export default function AdminPanel({}) {
     username: "",
     level: "",
   });
+
+  const handleEditClick = (blogId: string) => {
+    setActiveTab("editBlog");
+    setSelectedBlogId(blogId); // Set the selected blogId when edit button is clicked
+  };
 
   // Fetch user by ID from backend using localStorage userId
   const fetchUserById = () => {
@@ -130,11 +136,19 @@ export default function AdminPanel({}) {
         <div className="flex relative w-full bg-transparent overflow-hidden">
           {activeTab === "user" && <AdminPanelUser />}
           {activeTab === "queries" && <AdminPanelQueries />}
-          {activeTab === "blog" && (
-            <AdminPanelBlogs setActiveTab={setActiveTab} />
-          )}
           {activeTab === "createBlog" && (
             <BlogCreate setActiveTab={setActiveTab} />
+          )}
+          {/* Conditional Rendering Based on Active Tab */}
+          {activeTab === "blog" && (
+            <AdminPanelBlogs
+              setActiveTab={setActiveTab}
+              handleEditClick={handleEditClick}
+            />
+          )}
+
+          {activeTab === "editBlog" && selectedBlogId && (
+            <BlogEdit blogId={selectedBlogId} setActiveTab={setActiveTab} />
           )}
           {/* Ensure activeTab is 'queries' */}
         </div>

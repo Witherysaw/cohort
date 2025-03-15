@@ -12,6 +12,7 @@ export default function CreateBlog({
   const [paragraph3, setParagraph3] = useState("");
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [blogId, setBlogId] = useState<number>(0);
+  const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
 
   // Get the latest blog ID from the backend
@@ -66,7 +67,7 @@ export default function CreateBlog({
     formData.append("paragraph1", paragraph1);
     formData.append("paragraph2", paragraph2);
     formData.append("paragraph3", paragraph3);
-    formData.append("user_id", "1"); // Replace with actual user ID
+    formData.append("user_id", userId); // Replace with actual user ID
     selectedImages.forEach((image) => {
       formData.append("images", image);
     });

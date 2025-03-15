@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function AdminPanelBlogs({
   setActiveTab,
+  handleEditClick,
 }: {
   setActiveTab: (tab: string) => void;
+  handleEditClick: (blogId: string) => void;
 }) {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
   const [user, setUser] = useState({
     id: "",
@@ -129,7 +132,7 @@ export default function AdminPanelBlogs({
                 key={blog.id}
                 className="border-collapse border-2 border-gray-300 pr-10 justify-between h-[200px] flex flex-row w-[100%] rounded overflow-hidden shadow-lg"
               >
-                <div className="w-80 px-6 py-4">
+                <div className="w-80 h-[180px] px-6 py-4 overflow-hidden">
                   <img
                     className=""
                     src={`http://127.0.0.1:5000/${blog.image1.replace(
@@ -146,16 +149,37 @@ export default function AdminPanelBlogs({
                       {blog.paragraph1.slice(0, 200)}...
                     </p>
                   </div>
+
                   <div>
-                    {/* Show Delete button only if the user is an admin */}
-                    {user.level.toLowerCase() === "admin" && (
+                    <div className="flex flex-row gap-3">
+                      {/* "Go to blog" button - Visible to everyone */}
                       <button
-                        className="bg-red-500 px-4 py-1 rounded-md text-white mr-2 hover:bg-red-600"
-                        onClick={() => deleteBlog(blog.id)}
+                        className="bg-blue-500 px-4 py-1 rounded-md text-white hover:bg-blue-600"
+                        onClick={() => navigate(`/blog/${blog.id}`)}
                       >
-                        Delete
+                        Go to blog
                       </button>
-                    )}
+
+                      {/* "Edit" button - Only visible if user is the writer of the blog */}
+                      {user.id === blog.user_id && (
+                        <button
+                          className="bg-yellow-500 px-4 py-1 rounded-md text-white hover:bg-yellow-600"
+                          onClick={() => handleEditClick(blog.id)}
+                        >
+                          Edit
+                        </button>
+                      )}
+
+                      {/* "Delete" button - Only visible if user is an admin */}
+                      {user.level.toLowerCase() === "admin" && (
+                        <button
+                          className="bg-red-500 px-4 py-1 rounded-md text-white mr-2 hover:bg-red-600"
+                          onClick={() => deleteBlog(blog.id)}
+                        >
+                          Delete
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center justify-items-center">

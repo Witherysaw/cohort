@@ -6,6 +6,8 @@ const Chatbot = () => {
   );
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Load messages from localStorage on component mount
   useEffect(() => {
@@ -29,10 +31,12 @@ const Chatbot = () => {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
+    setErrorMessage(""); // Clear previous error
     const userMessage = { role: "user", content: input };
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
     setInput("");
+    setIsTyping(true); // Show typing animation
 
     try {
       const response = await fetch("http://localhost:5000/chat", {
@@ -42,14 +46,19 @@ const Chatbot = () => {
       });
 
       const data = await response.json();
+      setIsTyping(false); // Hide typing animation
+
       if (data.response) {
         setMessages((prev) => [
           ...prev,
           { role: "bot", content: data.response },
         ]);
+      } else {
+        throw new Error("Invalid response from server.");
       }
     } catch (error) {
-      console.error("Error:", error);
+      setIsTyping(false);
+      setErrorMessage("An error occurred. Please try again.");
     }
   };
 
@@ -69,8 +78,10 @@ const Chatbot = () => {
       {isOpen && (
         <div className="w-80 bg-white shadow-xl rounded-lg flex flex-col overflow-hidden border border-gray-300">
           <div className="bg-blue-500 text-white p-3 font-semibold flex justify-between">
-            <span>Chatbot</span>
-            <button onClick={() => setIsOpen(false)}>✖</button>
+            <span className="pt-1">AI Assistant</span>
+            <button onClick={() => setIsOpen(false)}>
+              <i className="bx bx-x text-3xl"></i>
+            </button>
           </div>
 
           <div className="p-3 h-64 overflow-y-auto flex flex-col gap-2">
@@ -104,6 +115,27 @@ const Chatbot = () => {
                 </div>
               </div>
             ))}
+
+            {/* Typing Indicator */}
+            {isTyping && (
+              <div className="flex items-center gap-2">
+                <img
+                  src="https://i.postimg.cc/LXpBtddv/Ai-Chatboticonfor-Mg.png"
+                  alt="Bot"
+                  className="w-6 h-6 rounded-full border border-gray-300"
+                />
+                <div className="p-2 bg-gray-200 rounded-md max-w-[75%]">
+                  <span className="animate-pulse">...</span>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {errorMessage && (
+              <div className="text-red-500 text-sm text-center">
+                {errorMessage}
+              </div>
+            )}
           </div>
 
           <div className="p-3 border-t flex">
